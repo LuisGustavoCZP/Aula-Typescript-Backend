@@ -1,1 +1,1 @@
-export { IModel } from "./imodel";
+export { Database } from "./database";

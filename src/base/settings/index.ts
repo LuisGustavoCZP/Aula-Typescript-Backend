@@ -4,7 +4,7 @@ import { CorsOptions } from "cors";
 import { env } from "process";
 import { PoolConfig } from "pg";
 import { genSaltSync } from "bcrypt";
-import { Postgres } from "../clients";
+import { Database, Postgres } from "../clients";
 
 dotenv.config();
 
@@ -20,9 +20,10 @@ const databaseConfig : PoolConfig =
     password:env.DB_PASSWORD
 }
 
-const database = new Postgres();
+const database : Database = new Postgres();
 
-const corsOptions : CorsOptions = {
+const corsOptions : CorsOptions = 
+{
     origin:["http://127.0.0.1:5500"],
     credentials: true
 };

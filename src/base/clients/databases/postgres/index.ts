@@ -1,14 +1,16 @@
 import { Pool } from "pg";
 import { Model } from "../../../models";
 import { databaseConfig } from "../../../settings";
-import { IModel } from "../models";
+import { IModel } from "../interfaces";
+import { Database } from "../models";
 
-export class Postgres 
+export class Postgres extends Database
 {
     private _pool: Pool;
 
     public constructor ()
     {
+        super();
         this._pool = new Pool(databaseConfig);
     }
 
